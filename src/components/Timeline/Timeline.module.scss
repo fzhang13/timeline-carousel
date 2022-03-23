@@ -1,0 +1,39 @@
+@import 'shared';
+
+.Timeline {
+  position: relative;
+  svg {
+    position: absolute;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    .timelineLoader {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  #circle {
+    position: relative;
+    left: 0;
+  }
+  .currentYearPoint {
+    width: px(12);
+    height: px(12);
+  }
+  .timelineDot {
+    width: px(6);
+    height: px(6);
+    cursor: pointer;
+  }
+  .timelineYear {
+    height: px(6);
+  }
+
+  .timelineMap {
+    padding-top: 1.6px;
+    width: 319px;
+    height: 319px;
+    position: relative;
+  }
+}
