@@ -2,9 +2,16 @@
 
 .Timeline {
   position: relative;
+  height: 288px;
+  width: 288px;
+  margin: auto;
   svg {
+    height: 100%;
+    width: 100%;
     position: absolute;
-    left: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     margin-left: auto;
     margin-right: auto;
     .timelineLoader {
@@ -27,6 +34,7 @@
     cursor: pointer;
   }
   .timelineYear {
+    display: inline-block;
     height: px(6);
   }
 
@@ -35,5 +43,14 @@
     width: 319px;
     height: 319px;
     position: relative;
+  }
+  .yearText {
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: visible;
   }
 }
