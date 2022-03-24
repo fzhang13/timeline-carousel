@@ -29,8 +29,7 @@ function Timeline() {
   let [activeIndex, setActiveIndex] = useState<number>(0);
 
   // this is what i was using but it gave errors when pushing
-  let [mainTimeline, setMainTimeline] = useState<Timeline>(null);
-  
+  let [mainTimeline, setMainTimeline] = useState<gsap.core.Timeline | null>(null);
 
   const circleRef = useRef<SVGCircleElement>(null);
   const SVGRef = useRef<HTMLDivElement>(null);
@@ -489,7 +488,7 @@ function Timeline() {
     console.log(tmpTime);
 
     //had comment this out to push
-    mainTimeline.tweenTo('point' + swiper.activeIndex);
+    mainTimeline?.tweenTo('point' + swiper.activeIndex);
 
     setTime(tmpTime);
     console.log('point' + activeIndex);
@@ -522,6 +521,22 @@ function Timeline() {
   }
   return (
     <div className={classnames(styles.Timeline)}>
+      <div ref={SVGRef}>
+        <SVGTimeDot id="point0" className={classnames(styles.timelineDot)} />
+        <SVGTimeDot id="point1" className={classnames(styles.timelineDot)} />
+        <SVGTimeDot id="point2" className={classnames(styles.timelineDot)} />
+        <SVGTimeDot id="point3" className={classnames(styles.timelineDot)} />
+        <SVGTimeDot id="point4" className={classnames(styles.timelineDot)} />
+        <SVGTimeDot id="point5" className={classnames(styles.timelineDot)} />
+        <SVGTimeDot id="point6" className={classnames(styles.timelineDot)} />
+        <SVGTimeDot id="point7" className={classnames(styles.timelineDot)} />
+        <SVGTimeDot id="point8" className={classnames(styles.timelineDot)} />
+        <SVGTimeDot id="point9" className={classnames(styles.timelineDot)} />
+        <SVGTimeDot id="point10" className={classnames(styles.timelineDot)} />
+        <SVGTimeDot id="point11" className={classnames(styles.timelineDot)} />
+        <SVGTimeDot id="point12" className={classnames(styles.timelineDot)} />
+        <SVGTimeDot id="point13" className={classnames(styles.timelineDot)} />
+      </div>
       <svg width="289" height="288" viewBox="0 0 350 350">
         <circle
           ref={circleRef}
@@ -532,7 +547,7 @@ function Timeline() {
           r="170"
           stroke="#302F30"
           fill="none"
-          strokeWidth=" .19432"
+          strokeWidth="1"
         />
       </svg>
       <svg width="340" height="340">
@@ -550,22 +565,7 @@ function Timeline() {
       <SVGtimeMap />
 
       <SVGCurrentYearDot id="currentYearPoint" className={classnames(styles.currentYearPoint)} />
-      <div ref={SVGRef}>
-        <SVGTimeDot id="point0" className={classnames(styles.timelineDot)} />
-        <SVGTimeDot id="point1" className={classnames(styles.timelineDot)} />
-        <SVGTimeDot id="point2" className={classnames(styles.timelineDot)} />
-        <SVGTimeDot id="point3" className={classnames(styles.timelineDot)} />
-        <SVGTimeDot id="point4" className={classnames(styles.timelineDot)} />
-        <SVGTimeDot id="point5" className={classnames(styles.timelineDot)} />
-        <SVGTimeDot id="point6" className={classnames(styles.timelineDot)} />
-        <SVGTimeDot id="point7" className={classnames(styles.timelineDot)} />
-        <SVGTimeDot id="point8" className={classnames(styles.timelineDot)} />
-        <SVGTimeDot id="point9" className={classnames(styles.timelineDot)} />
-        <SVGTimeDot id="point10" className={classnames(styles.timelineDot)} />
-        <SVGTimeDot id="point11" className={classnames(styles.timelineDot)} />
-        <SVGTimeDot id="point12" className={classnames(styles.timelineDot)} />
-        <SVGTimeDot id="point13" className={classnames(styles.timelineDot)} />
-      </div>
+
       <div ref={yearRef}>
         <div id="year1970" className={classnames(styles.timelineYear)}>
           1970
@@ -592,7 +592,7 @@ function Timeline() {
           1998
         </div>
         <div id="year2002" className={classnames(styles.timelineYear)}>
-          2002
+          1982
         </div>
         <div id="year2006" className={classnames(styles.timelineYear)}>
           2006
